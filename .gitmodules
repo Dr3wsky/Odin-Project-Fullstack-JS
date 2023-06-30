@@ -7,3 +7,9 @@
 [submodule "css-exercises"]
 	path = css-exercises
 	url = git@github.com:Dr3wsky/css-exercises.git
+[submodule "Projects/library-app"]
+	path = Projects/library-app
+	url = git@github.com:Dr3wsky/library-app.git
+[submodule "Projects/tic-tac-toe"]
+	path = Projects/tic-tac-toe
+	url = git@github.com:Dr3wsky/tic-tac-toe.git
