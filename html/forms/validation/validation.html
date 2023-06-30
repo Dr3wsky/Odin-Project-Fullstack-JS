@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Favorite fruit start</title>
+    <link rel="stylesheet" href="validation-styles.css">
+  </head>
+
+<body>
+    <form>
+        <div>
+          <label for="choose">Would you prefer a banana or a cherry? (required)</label>
+          <input id="choose" name="i-like" required
+          pattern="[Bb]anana|[Cc]herry|[Bb]?(an)*"
+          minlength="6"
+          maxlength="20" />
+        </div>
+        <div>
+          <label for="number">How many would you like?</label>
+          <input type="number" name="amount" id="number" value="1" min="1" max="11">
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="controls-stylesheet.css" rel="stylesheet" type="text/css">
+    <title>Form Structure Assessment 1</title>
+  </head>
+  <body>
+    <form>
+        <h2>Enter your comment</h2>
+        <ul>
+          <li>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+          </li>
+          <li>
+            <label for="comment">Comment:</label>
+            <textarea name="comment" id="comment" cols="35" rows="10" wrap="soft" maxlength="100">Please be nice. . . </textarea>
+          </li>
+          <li>
+            <input type="submit" value="Submit Comments">
+          </li>
+        </ul>
+      </form>
+      <br>
+      <form>
+        <ul>
+          <li>
+            <label for="food">Favourite Food Selector:</label>
+            <select name="fave-food" id="food">
+            <optgroup label="Mains">
+                <option>Salad</option>
+                <option>Curry</option>
+                <option>Pizza</option>
+                <option>Fajitas</option>
+            </optgroup>
+                <optgroup label="Snacks">
+                <option>Biscuits</option>
+                <option>Crisps</option>
+                <option>Fruit</option>
+                <option>Breadsticks</option>
+            </optgroup>
+        </select>
+          </li>
+          <li>
+            <button>Submit choice</button>
+          </li>
+        </ul>
+      </form>
+      <br>
+      <form>
+        <ul>
+          <li>
+            <label for="food">Favourite Food Suggestions:</label>
+            <input type="text" name="fave-food" id="food" list="food-list">
+            <datalist id="food-list">
+                <option>Salad</option>
+                <option>Curry</option>
+                <option>Pizza</option>
+                <option>Fajitas</option>
+                <option>Biscuits</option>
+                <option>Crisps</option>
+                <option>Fruit</option>
+                <option>Breadsticks</option>
+            </datalist>
+                
+                
+                
+                
+                
+                
+                
+                
+      
+          </li>
+          <li>
+            <button>Submit choice</button>
+          </li>
+        </ul>
+      </form>
+          
+          
+</body>

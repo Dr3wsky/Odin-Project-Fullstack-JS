@@ -1,0 +1,6 @@
+[submodule "Projects/sign-up-form"]
+	path = Projects/sign-up-form
+	url = git@github.com:Dr3wsky/sign-up-form.git
+[submodule "JavaScript30-exercises"]
+	path = JavaScript30-exercises
+	url = git@github.com:Dr3wsky/JavaScript30-exercises.git
