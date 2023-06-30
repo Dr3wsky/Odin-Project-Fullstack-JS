@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Constructors Exercise</title>
+  </head>
+
+  <body>
+    <style></style>
+
+    <script>
+      function Book(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.blurb = function () {
+          if (!read) {
+            return `${title} by ${author} is ${pages} pages long and has NOT read`;
+          } else {
+            return `${title} by ${author} is ${pages} pages long and has been read`;
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
