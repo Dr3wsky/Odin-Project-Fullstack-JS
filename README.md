@@ -1,8 +1,8 @@
 # The Odin Project - JavaScript Fullstack Pathway
 
-Repository for the open-source web-dev curriculum for the Odin Project Fullstack [Javascript Develloper]([https://www.theodinproject.com/paths/full-stack-javascript]) Path
+Repository for the open-source web-dev curriculum for the Odin Project [Fullstack Javascript Develloper](https://www.theodinproject.com/paths/full-stack-javascript) Path
 
-Contains exercises for follow-along learning, submodules for 3rd party content and [project-based learning]([https://github.com/Dr3wsky/Odin-Project-Fullstack-JS/tree/main/Projects]) examples to demonstrate my own protfolio and progress.
+Contains exercises for follow-along learning, submodules for 3rd party content and [project-based learning](https://github.com/Dr3wsky/Odin-Project-Fullstack-JS/tree/main/Projects) examples to demonstrate my own protfolio and progress.
 
 ### Skills and Learnings:
 
