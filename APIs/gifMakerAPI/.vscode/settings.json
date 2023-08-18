@@ -1,3 +1,4 @@
 {
-    "editor.mouseWheelZoom": false
+    "editor.mouseWheelZoom": false,
+    "cmake.configureOnOpen": false
 }

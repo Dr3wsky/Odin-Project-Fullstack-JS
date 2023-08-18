@@ -7,4 +7,4 @@ fetch(apiBase.concat(imgSearch), {mode: 'cors'})
   })
   .then(function(response) {
     img.src =  response.data.images.original.url;
-);
+      });
