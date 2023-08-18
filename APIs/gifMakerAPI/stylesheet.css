@@ -1,6 +1,6 @@
 /* Global Vars, html reset and custom fonts */
 :root {
-    --primary-dark: rgba(41, 66, 65, 0.932);
+    --primary-dark: rgba(38, 64, 63, 0.932);
     --secondary-light: rgba(212, 164, 124, 0.932);
     --primary-light: rgb(249, 250, 251);
     --primary-font: "Hack";
@@ -20,7 +20,7 @@
     font-family: Hack;
     src: url("fonts/Hack-Regular.woff2") format("woff2"),
         url("fonts/Hack-Regular.woff") format("woff");
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -56,22 +56,41 @@ html body {
     padding: inherit;
 }
 
+input {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    padding: 0.5rem;
+}
+
+input:focus {
+  border: none;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.342);
+  outline: none;
+  border: 2px solid rgb(74, 202, 198);
+}
+
+.error {
+  font-family: var(--primary-font);
+  font-size: 0.8rem;
+  color: rgb(255, 69, 100);
+  position: absolute;
+  margin-top: 0.2rem;
+}
+
 img {
-    width: 10rem;
-    padding: 10px;
+    width: 50vw;
 }
 
 .footer {
   position: absolute;
   bottom: 0px;
-  right: 10px;
   color: var(--primary-dark);
   text-align: center;
   display: flex;
   align-content: center;
   gap: 10px;
   margin: 24px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .am-github {
