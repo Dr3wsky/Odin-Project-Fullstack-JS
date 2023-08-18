@@ -20,7 +20,9 @@
     </div>
     <form id="search-input" action="#">
       <label for="gif-search">
-        <input type="text" id="gif-search" required placeholder="what gify?"/>
+        <input type="text" id="gif-search" required 
+        placeholder="what gify?"
+        oninvalid="this.setCustomValidity(' ')"/>
         <div id="search-error" class="error"></div>
       </label>
       <button class="btn-search" type="submit" id="search-btn">
