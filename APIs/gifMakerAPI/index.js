@@ -21,18 +21,14 @@ const gifInput = document.getElementById("gif-search").value;
 img.src = fetchGif(apiBase, gifInput);
 }
 
-function fetchGif(apiBase, gifInput){
-fetch(apiBase.concat(gifInput), {mode: 'cors'})
-  .then(function(response) {
-    console.log(response.json);
-    return response.json();
-  })
-  .then(function(response) {
+async function fetchGif(apiBase, gifInput) {
+  try {
+    const response =  await fetch(apiBase.concat(gifInput), {mode: 'cors'});
+    const catData = await response.json();
     searchError.textContent = "";
-    img.src =  response.data.images.original.url;
-  })
-  .catch(e => {
+    img.src =  catData.data.images.original.url;
+  } catch (e) {
     searchError.textContent = "Invalid search, no gifs found. Try again."
     img.src = '#';
-  });
+  };
 }
