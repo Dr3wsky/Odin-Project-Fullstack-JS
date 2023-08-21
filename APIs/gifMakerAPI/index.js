@@ -23,11 +23,10 @@ img.src = fetchGif(apiBase, gifInput);
 
 async function fetchGif(apiBase, gifInput) {
   try {
-  const response =  await fetch(apiBase.concat(gifInput), {mode: 'cors'})
-  const catData = await response.json();
-  console.log(catData)
-  searchError.textContent = "";
-  img.src =  catData.data.images.original.url;
+    const response =  await fetch(apiBase.concat(gifInput), {mode: 'cors'});
+    const catData = await response.json();
+    searchError.textContent = "";
+    img.src =  catData.data.images.original.url;
   } catch (e) {
     searchError.textContent = "Invalid search, no gifs found. Try again."
     img.src = '#';
