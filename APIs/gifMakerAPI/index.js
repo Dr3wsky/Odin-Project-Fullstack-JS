@@ -6,13 +6,11 @@ const imgDefault = 'start';
 const searchError = document.getElementById("search-error");
 const apiBase = 'https://api.giphy.com/v1/gifs/translate?api_key=5USKJ6tsZp7la5EBedWxG0Z9vjybhKFY&s=';
 
-
-
 // Event handlers
 searchBtn.onclick = searchGif;
 searchInput.addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
-    e.preventDefault();
+    // e.preventDefault();
     searchBtn.click();
   };
 }); 
