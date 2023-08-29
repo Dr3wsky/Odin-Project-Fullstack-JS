@@ -13,3 +13,6 @@
 [submodule "Projects/tic-tac-toe"]
 	path = Projects/tic-tac-toe
 	url = git@github.com:Dr3wsky/tic-tac-toe.git
+[submodule "Projects/weather-app"]
+	path = Projects/weather-app
+	url = git@github.com:Dr3wsky/weather-app.git
