@@ -1,12 +1,18 @@
-class LinkedList {
-}
+import Node from "./node.js";
 
-class Node {
-    constructor (
-        value, 
-        nextNode,
-    ) {
-        this.value = value;
-        this.nextNode = nextNode;
+export default class LinkedList {
+  constructor() {
+    this.listHead = null;
+  }
+
+  append(value) {
+    if (this.listHead == null) this.prepend(value);
+    else {
+      let tmp = this.listHead;
+      while (tmp.nextNode != null) {
+        tmp = tmp.nextNode;
+      }
+      tmp.nextNode = new Node(value);
     }
+  }
 }
