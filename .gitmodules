@@ -1,5 +1,5 @@
-[submodule "Projects/sign-up-form"]
-	path = Projects/sign-up-form
+[submodule "projects/sign-up-form"]
+	path = projects/sign-up-form
 	url = git@github.com:Dr3wsky/sign-up-form.git
 [submodule "JavaScript30-exercises"]
 	path = JavaScript30-exercises
@@ -7,12 +7,12 @@
 [submodule "css-exercises"]
 	path = css-exercises
 	url = git@github.com:Dr3wsky/css-exercises.git
-[submodule "Projects/library-app"]
-	path = Projects/library-app
+[submodule "projects/library-app"]
+	path = projects/library-app
 	url = git@github.com:Dr3wsky/library-app.git
-[submodule "Projects/tic-tac-toe"]
-	path = Projects/tic-tac-toe
+[submodule "projects/tic-tac-toe"]
+	path = projects/tic-tac-toe
 	url = git@github.com:Dr3wsky/tic-tac-toe.git
-[submodule "Projects/weather-app"]
-	path = Projects/weather-app
+[submodule "projects/weather-app"]
+	path = projects/weather-app
 	url = git@github.com:Dr3wsky/weather-app.git
