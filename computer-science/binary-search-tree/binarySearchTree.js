@@ -16,23 +16,23 @@ export default class Tree {
 
     const mid = parseInt((start + end) / 2, 10);
     const node = new Node(arr[mid]);
-    node.left = sortedArrayToBST(arr, start, mid - 1);
-    node.right = sortedArrayToBST(arr, mid + 1, end);
+    node.left = this.sortedArrayToBST(arr, start, mid - 1);
+    node.right = this.sortedArrayToBST(arr, mid + 1, end);
+    this.prettyPrint(node);
     return node;
   }
 
-  // prettyPrint(node, prefix = "", isLeft = true) {
-  //   if (node === null) {
-  //     return;
-  //   }
-  //   if (node.right !== null) {
-  //     prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-  //   }
-  //   console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
-  //   if (node.left !== null) {
-  //     prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-  //   }
-  
-  // }
+  prettyPrint(node, prefix = "", isLeft = true) {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      this.prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+    if (node.left !== null) {
+      this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
+  }
 
 }
