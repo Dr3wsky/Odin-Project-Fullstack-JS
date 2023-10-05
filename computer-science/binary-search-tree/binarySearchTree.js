@@ -8,6 +8,7 @@ export default class Tree {
 
   buildTree(arr) {
     const root = this.sortedArrayToBST(arr, 0, arr.length) 
+    this.prettyPrint(root);
     return root;
   }
 
@@ -18,7 +19,6 @@ export default class Tree {
     const node = new Node(arr[mid]);
     node.left = this.sortedArrayToBST(arr, start, mid - 1);
     node.right = this.sortedArrayToBST(arr, mid + 1, end);
-    this.prettyPrint(node);
     return node;
   }
 
