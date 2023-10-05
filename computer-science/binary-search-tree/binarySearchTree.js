@@ -38,15 +38,15 @@ export default class Tree {
   }
 
   insert(value, node = this.root) {
-    // Do nothing if value exists
-    if (value === node.value) return;
-
     // Inserts as new node (leaf) if at null value (end of branch)
     if (node == null) {
       node = new Node(value);
       return node;
     }
-    
+
+    // Do nothing if value exists
+    if (value === node.value) return;
+
     // Traverse tree to end of leaf and insert value as new node
     if (value < node.value) {
       node.left = this.insert(value, node.left);
