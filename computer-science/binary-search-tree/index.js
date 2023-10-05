@@ -13,5 +13,5 @@ console.log("-------------------------------------------")
 binaryTree.insert(34);
 binaryTree.prettyPrint(binaryTree.root)
 console.log("-------------------------------------------")
-binaryTree.delete(4);
+binaryTree.delete(6345);
 binaryTree.prettyPrint(binaryTree.root)
