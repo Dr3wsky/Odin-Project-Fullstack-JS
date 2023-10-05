@@ -2,10 +2,10 @@ import Tree from "./binarySearchTree.js";
 
 const simpleArr = [1, 4, 25, 66, 98, 150];
 
-const testArr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+const testArr = [1, 556, 27, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 // Tests
-const binaryTree = new Tree(simpleArr);
+const binaryTree = new Tree(testArr);
 
 console.log(binaryTree)
 binaryTree.prettyPrint(binaryTree.root)
