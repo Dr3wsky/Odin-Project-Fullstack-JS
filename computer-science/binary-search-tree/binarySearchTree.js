@@ -8,7 +8,6 @@ export default class Tree {
 
   buildTree(arr) {
     const root = this.sortedArrayToBST(arr, 0, arr.length) 
-    this.prettyPrint(root);
     return root;
   }
 
@@ -21,6 +20,23 @@ export default class Tree {
     node.right = this.sortedArrayToBST(arr, mid + 1, end);
     return node;
   }
+
+  insert(value, node = this.root) {
+    // Inserts as new node (leaf) if at null value (end of branch)
+    if (node === null) return new Node(value);
+
+    // Do nothing if value exists
+    if (value === node.value) return;
+    
+    // Traverse tree to end of leaf and insert value as new node
+    if (value < node.value) {
+      node.left = this.insert(value, node.left);
+    } else {
+      node.right = this.insert(value, node.right);
+    }
+    return node;
+  }
+
 
   prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
