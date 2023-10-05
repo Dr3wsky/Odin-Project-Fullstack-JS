@@ -69,7 +69,20 @@ export default class Tree {
       node.right = this.delete(value, node.right);
     }
     return node;
-    }
+  }
+
+  find(value, node = this.root) {
+    // Returns null if no tree is instantiated
+    if (node == null) return null;
+
+    // Returns node if value is found
+    if (value == node.value) return node;
+
+    // Steps through tree to find value in nodes
+    if (value < node.value) return this.find(value, node.left); 
+    if (value > node.value) return this.find(value, node.right); 
+  }
+
 
 
   // Prints visual depiction of binary tree

@@ -1,17 +1,20 @@
 import Tree from "./binarySearchTree.js";
 
-const simpleArr = [1, 4, 25, 66, 98, 150];
-
+// Test Array
 const testArr = [1, 556, 556, 27, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
-// Tests
+// Construct tree from array
 const binaryTree = new Tree(testArr);
 
 console.log(binaryTree)
-binaryTree.prettyPrint(binaryTree.root)
+binaryTree.prettyPrint(binaryTree.root) // Prints binary search tree with no duplicate values
 console.log("-------------------------------------------")
 binaryTree.insert(34);
-binaryTree.prettyPrint(binaryTree.root)
+binaryTree.prettyPrint(binaryTree.root) // Adds 34 to leaf of existing tree
 console.log("-------------------------------------------")
-binaryTree.delete(6345);
-binaryTree.prettyPrint(binaryTree.root)
+binaryTree.delete(5);
+binaryTree.prettyPrint(binaryTree.root) // Removes node 5 and reorders children
+console.log("-------------------------------------------")
+console.log(binaryTree.find(27)) // Node {value: 34, left: null, right: node}
+console.log(binaryTree.find(9)) // Node {value: 34, left: Node, right: Node}
+
