@@ -93,16 +93,18 @@ export default class Tree {
     if (value > node.value) return this.depth(value, node.right) + 1;
   }
 
-  levelOrder() {
+  // Use FIFO recursively 
+  levelOrder(traverse = this.#toArray) {
     this.levelOrderTraversed = [];
     // Return if no root node, ie: no tree exist
     if (this.root === null) return
 
     const queue = [];
     queue.push(this.root);
+    // Build 
     while (queue.length > 0) {
       const node = queue[0];
-      this.toArray(this.levelOrderTraversed, node.value);
+      traverse(this.levelOrderTraversed, node.value);
       if (node.left != null) queue.push(node.left);
       if (node.right != null) queue.push(node.right);
       queue.shift();
@@ -110,16 +112,6 @@ export default class Tree {
     console.log(this.levelOrderTransversed)
     return this.levelOrderTraversed;
   }
-
-
-
-
-
-
-
-
-
-
 
   // Prints visual depiction of binary tree
   prettyPrint(node, prefix = "", isLeft = true) {
@@ -135,9 +127,6 @@ export default class Tree {
     }
   }
 
-  toArray(arr, value) {
-    arr.push(value);
-  }
   //Private Methods
   
   #inOrderSuccessor(node) {
@@ -162,6 +151,10 @@ export default class Tree {
       node = null;
       return replacementNode;
     }
+  }
+
+  #toArray(arr, value) {
+    arr.push(value);
   }
 
 }
