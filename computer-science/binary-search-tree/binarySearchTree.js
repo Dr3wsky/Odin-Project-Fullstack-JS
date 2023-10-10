@@ -40,20 +40,11 @@ export default class Tree {
 
   insert(value, node = this.root) {
     // Inserts as new node (leaf) if at null value (end of branch)
-    if (node == null) {
-      node = new Node(value);
-      return node;
-    }
-
+    if (node === null) return new Node(value);
     // Do nothing if value exists
-    if (value === node.value) return;
-
-    // Traverse tree to end of leaf and insert value as new node
-    if (value < node.value) {
-      node.left = this.insert(value, node.left);
-    } else if (value > node.value) {
-      node.right = this.insert(value, node.right);
-    }
+    value < node.value 
+      ? node.left = this.insert(value, node.left)
+      : node.right = this.insert(value, node.right);
     return node;
   }
 
@@ -77,11 +68,12 @@ export default class Tree {
     if (node == null) return null;
 
     // Returns node if value is found
-    if (value == node.value) return node;
-
-    // Steps through tree to find value in nodes
-    if (value < node.value) return this.find(value, node.left); 
-    if (value > node.value) return this.find(value, node.right); 
+    if (value !== node.value) {
+      return value < node.value 
+        ? this.find(value, node.left)
+        : this.find(value, node.right);
+    }
+    return node;
   }
 
   height(node) {
