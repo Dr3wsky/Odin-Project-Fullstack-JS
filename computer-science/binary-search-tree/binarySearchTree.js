@@ -4,6 +4,7 @@ export default class Tree {
 
   constructor(arr) {
     this.root = this.buildTree(arr);
+    this.levelOrderTraversed = [];
   }
 
   buildTree(arr) {
@@ -100,6 +101,26 @@ export default class Tree {
     if (value > node.value) return this.depth(value, node.right) + 1;
   }
 
+  levelOrder() {
+    this.levelOrderTraversed = [];
+    // Return if no root node, ie: no tree exist
+    if (this.root === null) return
+
+    const queue = [];
+    queue.push(this.root);
+    while (queue.length > 0) {
+      const node = queue[0];
+      this.toArray(this.levelOrderTraversed, node.value);
+      if (node.left != null) queue.push(node.left);
+      if (node.right != null) queue.push(node.right);
+      queue.shift();
+    }
+    console.log(this.levelOrderTransversed)
+    return this.levelOrderTraversed;
+  }
+
+
+
 
 
 
@@ -122,7 +143,9 @@ export default class Tree {
     }
   }
 
-
+  toArray(arr, value) {
+    arr.push(value);
+  }
   //Private Methods
   
   #inOrderSuccessor(node) {
