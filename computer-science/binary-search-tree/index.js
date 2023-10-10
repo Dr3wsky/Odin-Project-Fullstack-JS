@@ -17,4 +17,5 @@ binaryTree.prettyPrint(binaryTree.root) // Removes node 5 and reorders children
 console.log("-------------------------------------------")
 console.log(binaryTree.find(27)) // Node {value: 34, left: null, right: node}
 console.log(binaryTree.find(9)) // Node {value: 34, left: Node, right: Node}
+console.log(binaryTree.depth(7)) // 3
 
