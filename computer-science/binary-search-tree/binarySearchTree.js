@@ -4,7 +4,10 @@ export default class Tree {
 
   constructor(arr) {
     this.root = this.buildTree(arr);
-    this.levelOrderTraversed = [];
+    this.levelOrderList = [];
+    this.preorderList = [];
+    this.inorderList = [];
+    this.postorderList = [];
   }
 
   buildTree(arr) {
@@ -51,7 +54,6 @@ export default class Tree {
   delete(value, node = this.root) {
     // Returns if no node with value found
     if (node === null) return node;
-    
     // Traverse tree to find node with desired value, delete with helper method if value found
     if (value == node.value) {
       node = this.#removeNodeHelper(node);
@@ -93,24 +95,48 @@ export default class Tree {
     if (value > node.value) return this.depth(value, node.right) + 1;
   }
 
-  // Use FIFO recursively 
-  levelOrder(traverse = this.#toArray) {
-    this.levelOrderTraversed = [];
-    // Return if no root node, ie: no tree exist
-    if (this.root === null) return
-
-    const queue = [];
-    queue.push(this.root);
-    // Build 
-    while (queue.length > 0) {
+  // Use FIFO recursively to traverse tree in level order
+  levelOrder(callbackFn) {
+    if (!this.root) return [];
+    const levelOrderList = [];
+    const queue = [this.root];
+    while (queue.length) {
       const node = queue[0];
-      traverse(this.levelOrderTraversed, node.value);
-      if (node.left != null) queue.push(node.left);
-      if (node.right != null) queue.push(node.right);
+      callbackFn ? callbackFn(node) : levelOrderList.push(node.value)
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
       queue.shift();
     }
-    console.log(this.levelOrderTransversed)
-    return this.levelOrderTraversed;
+    this.levelOrderList = levelOrderList
+    return levelOrderList;
+  }
+
+  /**
+   * Three methods for depth-first traversal:
+   * Preorder & postorder (use stack, LIFO)
+   * Inorder uses iteration
+   */
+
+    preorder(callbackFn) {
+    if (!this.root) return [];
+    const queue = [this.root];
+    const preorderList = [];
+    while (queue.length) {
+      const node = queue.pop();
+      if (node.right) queue.push(node.right); // push right child as first in to fisit later 
+      if (node.left) queue.push(node.left);
+      callbackFn ? callbackFn(node) : preorderList.push(node.value);
+    }
+    this.preorderList = preorderList;
+    return preorderList
+  }
+
+  inorder(callbackFn) {
+
+  }
+
+  postorder(callbackFn) {
+
   }
 
   // Prints visual depiction of binary tree
@@ -127,7 +153,10 @@ export default class Tree {
     }
   }
 
-  //Private Methods
+
+  /**
+   * Private Methods
+   */
   
   #inOrderSuccessor(node) {
     let tmpNode = node;
@@ -141,7 +170,6 @@ export default class Tree {
     // If two children, bring up lowest right node to replace deleted, and reorder right nodes to follow
     if (node.left && node.right) {
       const successorNode = this.#inOrderSuccessor(node.right);
-      node.value = successorNode.value;
       node.right = this.delete(successorNode.value, node.right);
       return node;
     }
