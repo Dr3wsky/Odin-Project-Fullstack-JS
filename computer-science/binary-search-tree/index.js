@@ -1,4 +1,5 @@
 import Tree from "./binarySearchTree.js";
+/** The following is a working script to test functions as the binaryTree methods are made */
 
 // Test Array
 const testArr = [1, 556, 556, 27, 4, 23, 8, 9, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
@@ -18,10 +19,15 @@ binaryTree.prettyPrint(binaryTree.root) // Removes node 4 and reorders children
 console.log("-------------------------------------------")
 console.log(binaryTree.find(27)) // Node {value: 27, left: null, right: node}
 console.log(binaryTree.find(9)) // Node {value: 9, left: Node, right: Node}
-console.log(`Node depth is ${binaryTree.depth(7)}`) // Node depth is 2
-console.log(`Node height is ${binaryTree.height(67)}`) //
-console.log(`Root depth is ${binaryTree.depth(binaryTree.root)}`) //
-console.log(`Root height is ${binaryTree.height(binaryTree.root)}`)
+console.log(`Node depth is ${binaryTree.depth(4)}`) // Node depth is 3
+
+binaryTree.insert(4);
+binaryTree.insert(5);
+binaryTree.insert(6); 
+binaryTree.prettyPrint(binaryTree.root) // Prints tree after additions to test height() 
+console.log(`Node height is ${binaryTree.height(7)}`) //
+console.log(`Root depth is ${binaryTree.depth(binaryTree.root.value)}`) //
+console.log(`Root height is ${binaryTree.height(binaryTree.root.value)}`)
 
 console.log("-------------------------------------------")
 binaryTree.levelOrder(); // Returns array of tree values traverseed in level-order 
