@@ -76,7 +76,7 @@ export default class Tree {
   }
 
   height(value, node = this.find(value)) {
-    
+    if (!node) node = value;
     if (node === null) return 0;
     // Assign heights of each branch
     const leftHeight = this.height(node.left);
@@ -87,7 +87,7 @@ export default class Tree {
 
   // similar to find(), but returns the depth in tree of value, instead of the node
   depth(value, node = this.root) {
-    // Finds the node with value input, or returns
+    // Finds the assigns the node with value inpu
     if (this.find(value)) {
       value = this.find(value);
     } else {
