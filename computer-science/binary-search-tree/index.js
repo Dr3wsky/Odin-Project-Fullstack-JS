@@ -20,14 +20,17 @@ console.log(binaryTree.find(27)) // Node {value: 34, left: null, right: node}
 console.log(binaryTree.find(9)) // Node {value: 34, left: Node, right: Node}
 console.log(`Node depth is ${binaryTree.depth(7)}`) // 2
 console.log("-------------------------------------------")
-binaryTree.levelOrder(); // Returns array of tree values traverseed in level order 
-console.log(`Tree travesed in level order is:   ${binaryTree.levelOrderList}`) // [9, 4, 67, 1, 7, 23, 556, 3, 8, 27, 324, 6345, 36]
+binaryTree.levelOrder(); // Returns array of tree values traverseed in level-order 
+console.log(`Tree travesed in level-order is:       ${binaryTree.levelOrderList}`) // [9, 4, 67, 1, 7, 23, 556, 3, 8, 27, 324, 6345, 36]
 console.log("-------------------------------------------")
-binaryTree.preorder(); // Returns array of tree values traverseed in preorder 
-console.log(`Tree travesed in preorder is:      ${binaryTree.preorderList}`) // [9, 4, 1, 3, 7, 8, 67, 23, 27, 36, 556, 324, 6345]
+binaryTree.preOrder(); // Returns array of tree values traverseed in preorder 
+console.log(`Tree travesed in pre-order is:         ${binaryTree.preOrderList}`) // [9, 4, 1, 3, 7, 8, 67, 23, 27, 36, 556, 324, 6345]
 console.log("-------------------------------------------")
-binaryTree.postorder(); // Returns array of tree values traverseed in postorder 
-console.log(`Tree travesed in postorder is:     ${binaryTree.postorderList}`) // [9, 67, 556, 6345, 324, 23, 27, 36, 4, 7, 8, 1, 3]
+binaryTree.postOrder(); // Returns array of tree values traverseed in post-order 
+console.log(`Tree travesed in post-order is:        ${binaryTree.postOrderList}`) // [9, 67, 556, 6345, 324, 23, 27, 36, 4, 7, 8, 1, 3]
+console.log("-------------------------------------------")
+binaryTree.inOrder(); // Returns array of tree values traverseed in in-order 
+console.log(`Tree travesed in inOrder is:           ${binaryTree.inOrderList}`) // [1, 3, 4, 7, 8, 9, 23, 27, 36, 67, 324, 556, 6345]
 
 
  
