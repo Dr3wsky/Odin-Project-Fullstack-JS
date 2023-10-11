@@ -13,16 +13,12 @@ export default class Tree {
 
   buildTree(arr) {
     // Sorts arraay in place 
-    this.sortArray(arr); 
+    this.#sortArray(arr); 
     // Re-cast, removing duplicates
     arr = this.deleteDuplicates(arr);
     // Build tree from sorted, unique array 
     const root = this.sortedArrayToBST(arr, 0, arr.length-1) 
     return root;
-  }
-
-  sortArray(arr) {
-    return arr.sort((a, b) => a - b);
   }
 
   deleteDuplicates(arr) {
@@ -91,9 +87,15 @@ export default class Tree {
 
   // similar to find(), but returns the depth in tree of value, instead of the node
   depth(value, node = this.root) {
-    if (value === node.value) return 0;
-    if (value < node.value) return this.depth(value, node.left) + 1;
-    if (value > node.value) return this.depth(value, node.right) + 1;
+    // Finds the node with value input, or returns
+    if (this.find(value)) {
+      value = this.find(value);
+    } else {
+      return null;
+    }
+    if (value === node) return 0;
+    if (value.value < node.value) return this.depth(value.value, node.left) + 1;
+    if (value.value > node.value) return this.depth(value.value, node.right) + 1;
   }
 
   // Use FIFO queue to traverse tree in level-order
@@ -173,6 +175,10 @@ export default class Tree {
   /**
    * Private Methods to support funcs
    */
+
+  #sortArray(arr) {
+    return arr.sort((a, b) => a - b);
+  }
   
   #inOrderSuccessor(node) {
     let tmpNode = node;
@@ -195,10 +201,6 @@ export default class Tree {
       node = null;
       return replacementNode;
     }
-  }
-
-  #toArray(arr, value) {
-    arr.push(value);
   }
 
 }
