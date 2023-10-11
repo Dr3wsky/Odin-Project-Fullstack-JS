@@ -3,11 +3,12 @@ import Node from "./node.js";
 export default class Tree {
 
   constructor(arr) {
+    // Initialize all properties from methods to build and traverse tree
     this.root = this.buildTree(arr);
     this.levelOrderList = this.levelOrder();
-    this.preorderList = this.preorder();
-    this.inorderList = [];
-    this.postorderList = this.postorder();
+    this.preOrderList = this.preOrder();
+    this.inOrderList = this.inOrder();
+    this.postOrderList = this.postOrder();
   }
 
   buildTree(arr) {
@@ -112,38 +113,46 @@ export default class Tree {
 
   /**
    * Three methods for depth-first traversal:
-   * Preorder & Postorder use iterative queue, LIFO)
-   * Inorder uses iteration
+   * preOrder & postOrder use iterative queue, LIFO)
+   * inOrder uses iteration
    */
 
-    preorder(callbackFn) {
+    preOrder(callbackFn) {
     if (!this.root) return [];
     const queue = [this.root];
-    this.preorderList = [];
+    this.preOrderList = [];
     while (queue.length) {
       const node = queue.pop();
       if (node.right) queue.push(node.right); // push right child as first in to fisit later 
       if (node.left) queue.push(node.left);
-      callbackFn ? callbackFn(node) : this.preorderList.push(node.value);
+      callbackFn ? callbackFn(node) : this.preOrderList.push(node.value);
     }
-    return this.preorderList
+    return this.preOrderList
   }
 
-  inorder(callbackFn) {
+  inOrder(callbackFn, node = this.root) {
+    if (!this.inOrderList) this.inOrderList = [];
+    if (!this.root) return [];
+    if (node === null) return;
+    // User recursive method to move through tree and print list
+    this.inOrder(callbackFn, node.left)
+    callbackFn ? callbackFn(node) : this.inOrderList.push(node.value);
+    this.inOrder(callbackFn, node.right);
 
+    if (this.inOrderList.length) return this.inOrderList;
   }
 
-   postorder(callbackFn) {
+   postOrder(callbackFn) {
     if (!this.root) return [];
     const queue = [this.root];
-    this.postorderList = [];
+    this.postOrderList = [];
     while (queue.length) {
       const node = queue.pop();
-      if (node.left) queue.push(node.left); // Same as preorder, but pushing left into queue and visiting right nodes first 
+      if (node.left) queue.push(node.left); // Same as preOrder, but pushing left into queue and visiting right nodes first 
       if (node.right) queue.push(node.right);
-      callbackFn ? callbackFn(node) : this.postorderList.push(node.value);
+      callbackFn ? callbackFn(node) : this.postOrderList.push(node.value);
     }
-    return this.postorderList
+    return this.postOrderList
   }
 
   // Prints visual depiction of binary tree
@@ -162,7 +171,7 @@ export default class Tree {
 
 
   /**
-   * Private Methods
+   * Private Methods to support funcs
    */
   
   #inOrderSuccessor(node) {
