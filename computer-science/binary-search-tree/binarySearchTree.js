@@ -79,8 +79,8 @@ export default class Tree {
     return node;
   }
 
-  height(node) {
-    // Returns if node does not exist 
+  height(value, node = this.find(value)) {
+    
     if (node === null) return 0;
     // Assign heights of each branch
     const leftHeight = this.height(node.left);
@@ -96,7 +96,7 @@ export default class Tree {
     if (value > node.value) return this.depth(value, node.right) + 1;
   }
 
-  // Use FIFO recursively to traverse tree in level order
+  // Use FIFO queue to traverse tree in level-order
   levelOrder(callbackFn) {
     if (!this.root) return [];
     this.levelOrderList = [];
@@ -113,8 +113,8 @@ export default class Tree {
 
   /**
    * Three methods for depth-first traversal:
-   * preOrder & postOrder use iterative queue, LIFO)
-   * inOrder uses iteration
+   * pre-order & post-order use iterative queue, LIFO)
+   * in-order uses iteration
    */
 
     preOrder(callbackFn) {
