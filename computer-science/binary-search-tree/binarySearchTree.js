@@ -132,16 +132,19 @@ export default class Tree {
     return this.preOrderList
   }
 
-  inOrder(callbackFn, node = this.root) {
+  inOrder(callbackFn, node = this.root, newList = []) {
     if (!this.inOrderList) this.inOrderList = [];
     if (!this.root) return [];
     if (node === null) return;
     // User recursive method to move through tree and print list
-    this.inOrder(callbackFn, node.left)
-    callbackFn ? callbackFn(node) : this.inOrderList.push(node.value);
-    this.inOrder(callbackFn, node.right);
+    this.inOrder(callbackFn, node.left, newList)
+    callbackFn ? callbackFn(node) : newList.push(node.value);
+    this.inOrder(callbackFn, node.right, newList);
 
-    if (this.inOrderList.length) return this.inOrderList;
+    if (newList.length) {
+      this.inOrderList = newList;
+      return this.inOrderList;
+    }
   }
 
    postOrder(callbackFn) {
@@ -157,6 +160,22 @@ export default class Tree {
     return this.postOrderList
   }
 
+  isBalanced() {
+    const allNodes = this.inOrder();
+    for (let i = 0; i < allNodes.length; i++) {
+      const node = this.find(allNodes[i]);
+      const leftSubHeight = this.height(node.left);
+      const rightSubHeight = this.height(node.right);
+      if (Math.abs(leftSubHeight - rightSubHeight) > 1) return false;
+    }
+    return true;
+  }
+
+  rebalance() {
+    const currentTreeArray = this.inOrder();
+    this.root = this.buildTree(currentTreeArray);
+  }
+    
   // Prints visual depiction of binary tree
   prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
@@ -170,7 +189,6 @@ export default class Tree {
       this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   }
-
 
   /**
    * Private Methods to support funcs
