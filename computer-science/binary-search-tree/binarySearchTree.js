@@ -174,8 +174,9 @@ export default class Tree {
   rebalance() {
     const currentTreeArray = this.inOrder();
     this.root = this.buildTree(currentTreeArray);
+    this.#reorder();
   }
-    
+
   // Prints visual depiction of binary tree
   prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
@@ -194,6 +195,13 @@ export default class Tree {
    * Private Methods to support funcs
    */
 
+  #reorder() {
+    this.levelOrder()
+    this.preOrder();
+    this.postOrder();
+    this.inOrder();
+  }
+    
   #sortArray(arr) {
     return arr.sort((a, b) => a - b);
   }
