@@ -1,5 +1,6 @@
 # Linked List
-Singly Linked List implemented with JavaScript
+Singly Linked List implemented with JavaScript. 
+As described in The Odin Project's JavaScript Fullstack Develloper Curriculum [COmputer Science](https://www.theodinproject.com/lessons/javascript-linked-lists) module.
 
 ## Features
 - `append(value)` adds a new node containing value to the end of the list or to start if list is empty
