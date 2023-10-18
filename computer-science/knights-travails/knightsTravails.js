@@ -27,10 +27,22 @@ const ChessSquare = (x, y) => {
         return OFFSETS.map(newSquare).filter(Boolean);
     }
 
-    const newSquare
+    // returns new square if within board bounds
+    const newSquare = ([xOffset, yOffset]) => {
+        const [newX, newY] = [xPos + xOffset, yPos + yOffset];
+        if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+            return ChessSquare(newX, newY);
+        };
+    }
 
-
-
+    // Return existing square registry or create new registry from square
+    if (squareRegistry.has(name())) {
+        return squareRegistry.get(name());
+    } else {
+        const newSquare = {name, getPredecessor, setPredecessor, createMoves}
+        squareRegistry.set(name(), newSquare);
+        return newSquare;
+    }
 } 
 
 knightsTravails(start, finish) {
