@@ -45,8 +45,32 @@ const ChessSquare = (x, y) => {
     }
 } 
 
-knightsTravails(start, finish) {
+const knightsTravails = (start, end) => {
+    // Clear globa registry for new travail path
+    squareRegistry.clear();
+
+    //Create squares for start & end
+    const origin = ChessSquare(...start);
+    const target = ChessSquare(...end);
+
     
+    const queue = [target];
+    while (!queue.includes(origin)) {
+        const currentSquare = queue.shift();
+        const enqueueList = currentSquare.createKnightMoves();
+        enqueueList.forEach((square) => square.setPredecessor(currentSquare));
+        queue.push(...enqueueList);
+    }
+
+    const path = [origin];
+    while (!path.includes(target)) {
+        const nextSquare = path.at(-1).getPredecessor();
+        path.push(nextSquare);
+  }
+  console.log(`The shortest path was ${path.length - 1} moves!`);
+  console.log("The moves were:");
+  path.forEach(square => console.log(square.name()));
 }
+    
 
 module.exports = knightsTravails;
