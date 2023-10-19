@@ -45,7 +45,7 @@ const ChessSquare = (x, y) => {
     }
 } 
 
-const knightsTravails = (start, end) => {
+export const knightsTravails = (start, end) => {
     // Clear globa registry for new travail path
     squareRegistry.clear();
 
@@ -53,7 +53,7 @@ const knightsTravails = (start, end) => {
     const origin = ChessSquare(...start);
     const target = ChessSquare(...end);
 
-    
+
     const queue = [target];
     while (!queue.includes(origin)) {
         const currentSquare = queue.shift();
@@ -72,5 +72,3 @@ const knightsTravails = (start, end) => {
   path.forEach(square => console.log(square.name()));
 }
     
-
-module.exports = knightsTravails;
