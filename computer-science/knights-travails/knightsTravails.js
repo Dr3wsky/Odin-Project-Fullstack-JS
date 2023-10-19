@@ -57,7 +57,9 @@ export const knightsTravails = (start, end) => {
     const queue = [target];
     while (!queue.includes(origin)) {
         const currentSquare = queue.shift();
-        const enqueueList = currentSquare.createKnightMoves();
+        //Creates list of all possible moves for current square
+        const enqueueList = currentSquare.createMoves();
+        // Sets node list for 
         enqueueList.forEach((square) => square.setPredecessor(currentSquare));
         queue.push(...enqueueList);
     }
