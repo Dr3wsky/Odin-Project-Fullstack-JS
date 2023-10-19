@@ -46,7 +46,7 @@ const ChessSquare = (x, y) => {
 } 
 
 export const knightsTravails = (start, end) => {
-    // Clear globa registry for new travail path
+    // Clear global registry for new travail path
     squareRegistry.clear();
 
     //Create squares for start & end
@@ -59,7 +59,7 @@ export const knightsTravails = (start, end) => {
         const currentSquare = queue.shift();
         //Creates list of all possible moves for current square
         const enqueueList = currentSquare.createMoves();
-        // Sets node list for 
+        // Sets pointer for each square
         enqueueList.forEach((square) => square.setPredecessor(currentSquare));
         queue.push(...enqueueList);
     }
