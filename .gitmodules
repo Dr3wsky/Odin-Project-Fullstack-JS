@@ -16,6 +16,4 @@
 [submodule "projects/weather-app"]
 	path = projects/weather-app
 	url = git@github.com:Dr3wsky/weather-app.git
-[submodule "github-sandbox"]
-	path = github-sandbox
-	url = https://github.com/Dr3wsky/github-sandbox.git
+
