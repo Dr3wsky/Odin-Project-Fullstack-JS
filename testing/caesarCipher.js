@@ -34,50 +34,56 @@ const cipher = {
         if (typeof str !== 'string') return null;
 
         const newStrArr = [];
+        let isUpper = false;
         for (let i = 0; i < str.length; i++) {
-            // Skips if char is not in alphabet
-            if (!this.alpahDict.hasOwnProperty(str[i])) continue;
-            const idx = this.alpahDict[str[i]];
+            // Checks for upper case letters, and swtiches to lower or skips if special character
+            let char = str[i];
+            if (char === char.toUpperCase()) {
+                char = char.toLowerCase();
+                if (!this.alpahDict.hasOwnProperty(char)) {
+                    newStrArr[i] = char;
+                    continue;
+                }
+                isUpper = true;
+            }
+            // Finds starting indez
+            const idx = this.alpahDict[char];
             // Shift idx and assign new char 
             if (idx + shift > 26) {
                 const newIdx = idx + shift - 26;
                 newStrArr[i] = this.findKeyByValue(this.alpahDict, newIdx);
+            } else if (idx + shift < 0) {       // Handles negative results from decrypt call
+                const newIdx = 26 + idx + shift;
+                newStrArr[i] = this.findKeyByValue(this.alpahDict, newIdx);
             } else {
                 const newIdx = idx + shift;
                 newStrArr[i] = this.findKeyByValue(this.alpahDict, newIdx);
-            } 
+
+            }
+            // Return null if the value is not found in the object
+            if (char === '?') return null;
+            // corrects case of lettering to input
+            if (isUpper) {
+                newStrArr[i] = newStrArr[i].toUpperCase();
+                isUpper = !isUpper;
+            }
         };
         return newStrArr.join('');
     },
     
     decrypt: function(str, shift) { 
-        // Same as encrypt but shifts index backwards
-        if (typeof str !== 'string') return null;
-
-        const newStrArr = [];
-        for (let i = 0; i < str.length; i++) {
-            if (!this.alpahDict.hasOwnProperty(str[i])) continue;
-
-            const idx = this.alpahDict[str[i]];
-            if (idx - shift < 0) {
-                const newIdx = 26- idx + shift;
-                newStrArr[i] = this.findKeyByValue(this.alpahDict, newIdx);
-            } else {
-                const newIdx = idx - shift;
-                newStrArr[i] = this.findKeyByValue(this.alpahDict, newIdx);
-            } 
-        };
-        return newStrArr.join('');
+        // calls encrypt with negative shift
+        return this.encrypt(str, -shift);
     },
+        
+
     findKeyByValue: function(obj, value) {
         for (const key in obj) {
             if (obj.hasOwnProperty(key) && obj[key] === value) return key
         }
         return '?'; // Return null if the value is not found in the object
-}   
-}
+    }  
 
-console.log(cipher.encrypt('hello', 5));
-console.log(cipher.decrypt('mjqqt', 5));
+};
 
-// export { cipher.encrypt };
+module.exports = cipher
