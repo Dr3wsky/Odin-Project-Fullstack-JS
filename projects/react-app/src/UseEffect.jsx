@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
+// React component utilizing useEffect hook to log to console
 const UseEffect = () => {
     useEffect(() => {
         console.log('Mounting. . . ');
