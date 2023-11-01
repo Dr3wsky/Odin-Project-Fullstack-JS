@@ -1,12 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import AussieGreeting from './AussieGreeting.jsx'
 import './index.css'
-import FoodList from './FoodList.jsx'
 
+// Import desired react component to display
+// import App from './App.jsx'
+// import AussieGreeting from './AussieGreeting.jsx'
+// import Demo from './AppDemo.jsx'; 
+import UseEffect from './UseEffect'
+  
+
+// Display react component
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-    <FoodList />
-  </React.StrictMode>,
+      <React.StrictMode> 
+        <UseEffect /> 
+    </React.StrictMode>, 
 )
